@@ -1,0 +1,20 @@
+{
+  "name": "imepoh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "docker build -t oknuj/imepoh .",
+    "deploy": "docker run --name=imepoh --restart=always -p 42069:42069 -d oknuj/imepoh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-osc": "^6.1.14",
+    "serve-favicon": "^2.5.0"
+  }
+}
