@@ -1,3 +1,15 @@
+window.addEventListener("DOMContentLoaded", (event) => {
+    axios.get('https://live.imepoh.com/v1/states').then((res) => {
+        if(res.data["repeat_to_local_nginx"].type == "connected"){
+            document.getElementById("live_video").style.display = "block";
+            document.getElementById("live_image").style.display = "none";
+        }
+        else {
+            document.getElementById("live_video").style.display = "none";
+            document.getElementById("live_image").style.display = "block";
+        }
+    })
+})
 
 document.getElementById("cat0").addEventListener("click", () => {
     axios.get("/cat0_toggle").then((req, res) => {
@@ -78,4 +90,18 @@ setInterval(() => {
         }
     })
 
+
 }, 250);
+
+setInterval(() => {
+    axios.get('https://live.imepoh.com/v1/states').then((res) => {
+        if(res.data["repeat_to_local_nginx"].type == "connected"){
+            document.getElementById("live_video").style.display = "block";
+            document.getElementById("live_image").style.display = "none";
+        }
+        else {
+            document.getElementById("live_video").style.display = "none";
+            document.getElementById("live_image").style.display = "block";
+        }
+    })
+}, 5000)
